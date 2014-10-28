@@ -120,11 +120,29 @@ def get_weather_mentions(auth):
         screen_name_list.append(tweet['user']['screen_name'])    
     return screen_name_list  
 
+# create a function to tweet at returned screen name list
+# thoughts: I need a function to print out a status_message - something like "I don't know %s" % username
+
+def tweet_back_message():
+    
+
+def tweet_at_username():
+    for item in usernames:
+
+
+def make_tweet(status_message, auth):
+    data = { 'status': status_message }
+    response = requests.post(TWEET_URL, data=data, auth=auth)
+    print json.dumps(response.json(), indent=4)
+
+
 def main():
     """ Main function """
     auth = authorize()
 
     usernames = get_weather_mentions(auth)
+
+    make_tweet(tweet_back_message, auth)
      
     print usernames
     
